@@ -149,7 +149,7 @@ iface lo inet loopback
 allow-hotwplug eth0
 iface eth0 inet dhcp
 
-allow-hotplug wlan0 
+auto wlan0 
 iface wlan0 inet static
   address $RPI_LOCALIP
   netmask $DHCPD_NETMASK
