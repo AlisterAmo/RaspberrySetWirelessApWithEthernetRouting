@@ -164,7 +164,7 @@ cmd ifconfig wlan0 $RPI_LOCALIP
 # HOSTAPD config
 # Some configurations are not customizable through variables, 
 # namely WIFI security related (WPA2 CCMP)
-# of performance related (modes G and N enabled)
+# and performance related (modes G and N enabled)
 # channel 0 (auto) has been removed because it fails with the wireless iface of rpi
 # scan the wifi spectrum with a valid tool and configure a channel that best fits for scenario
 echo "Hostapd config..."
