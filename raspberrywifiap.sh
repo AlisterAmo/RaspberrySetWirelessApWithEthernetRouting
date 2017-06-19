@@ -16,6 +16,7 @@ export DHCPD_DNS="8.8.8.8, 8.8.4.4"
 # HOSTAPD WIFI hotspot config
 export AP_SSID="rPI_AP"
 export AP_WPAPASS="dontbeafoolandchangemeplease"
+export AP_CHANNEL="6"
 ######################################################
 # additional vars just for this script logging purposes and misc
 # you don't need to change them 
@@ -163,13 +164,15 @@ cmd ifconfig wlan0 $RPI_LOCALIP
 # HOSTAPD config
 # Some configurations are not customizable through variables, 
 # namely WIFI security related (WPA2 CCMP)
-# of performance related (modes G and N enabled), channel auto 
+# of performance related (modes G and N enabled)
+# channel 0 (auto) has been removed because it fails with the wireless iface of rpi
+# scan the wifi spectrum with a valid tool and configure a channel that best fits for scenario
 echo "Hostapd config..."
 output=$(echo "interface=wlan0
 ssid=$AP_SSID
 hw_mode=g
 ieee80211n=1
-channel=0
+channel=$AP_CHANNEL
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
